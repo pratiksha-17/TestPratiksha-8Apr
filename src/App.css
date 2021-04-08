@@ -1,38 +1,130 @@
-.App {
+.header{
+  text-align: center;
+  background: #ded6d6;
+  padding: 1px 10px;
+}
+
+.barHeader{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.bar{
+    height: 30px;
+    max-width: 500px;
+    margin: 0 auto 10px auto;
+    line-height: 30px;
+    font-size: 16px;
+    color: white;
+    padding: 0 0 0 10px;
+    position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.bar::before{
+  content: '';
+    width: 100%;
+    position: absolute;
+    left: 0;
+    height: 30px;
+    top: 0;
+    z-index: -2;
+    background: #ded6d6;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.bar::after{
+  content: '';
+    background: #4b3dbf;
+    height: 30px;
+    transition: 0.7s;
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.bar1::after{
+  max-width: 60%;
+}
+
+.barWrapper{
+  margin-right: 30%;
+  margin-top: 70px;
+}
+
+span{
+  position: absolute;
+    margin-left: 25px;
+    font-weight: bold;
+}
+
+.barStatus{
+    right: 20%;
+    position: absolute;
+    top: 22%;
+}
+
+th {
+  padding-bottom: 20px;
+  padding-left: 100px;
+}
+
+td{
+  padding-left: 100px;
+  padding-bottom: 20px;
+}
+
+.summaryWrap{
+  text-align: center;
+}
+
+.square{
+  height: 20px;
+  width: 20px;
+  background-color: #7cb5ec;
+  position: absolute;
+  white-space: nowrap;
+  margin-left: 15%;
+}
+
+.squareInCorrect{
+  height: 20px;
+  width: 20px;
+  background-color: #434348;
+  white-space: nowrap;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position: absolute;
+  margin-left: 30%;
 }
 
-.App-link {
-  color: #61dafb;
+.squareNotAttempt{
+  height: 20px;
+  width: 20px;
+  background-color:#e4d1d1;
+  white-space: nowrap;
+  display: flex;
+  position: absolute;
+  margin-left: 50%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.timetaken{
+    margin-right: 25%;
+    float: right;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    font-size: 40px;
+}
+
+p{
+  font-size: 20px;
+}
+
+.timetakenMin{
+  margin-right: 15%;
+  float: right;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  font-size: 40px;
 }
