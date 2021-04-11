@@ -17,9 +17,12 @@ const Bar = () =>{
 
     return(
         <>
-        <h4 className = 'barHeader'>MARKS SCORED</h4>
-        <div className='barWrapper'>{bar}</div>
+        <h4>MARKS SCORED</h4>
+        <div className='barWrapper'>
+        <div> {bar} </div>
         <BarStatus/>
+        </div>
+        
         </>
 
     )

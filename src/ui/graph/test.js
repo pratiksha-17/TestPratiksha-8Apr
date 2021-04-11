@@ -6,12 +6,12 @@ import PieChart from './PieChart/pieChart'
 const Test = () =>{
     
 
-    return(
-        <>
+    return( 
+        <div className = 'graph'>
         <Header title = 'Overall Summary'/>
         <Bar/>
         <PieChart/>
-        </>
+        </div>
     )
 
 }

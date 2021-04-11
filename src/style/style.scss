@@ -1,0 +1,99 @@
+  @mixin chartValue() {
+            // $result: 3 - $data;
+            max-width: 20%;
+    }
+
+   
+
+.graph{
+
+    .header{
+        text-align: center;
+        background: #ded6d6;
+        padding: 1px 10px;
+    }
+    
+    .header + h4{
+      text-align: center;
+    }
+    
+    .barWrapper{
+        margin-right: 30%;
+        margin-top: 70px;
+        height: 250px;
+        .bar{
+            height: 30px;
+            max-width: 500px;
+            margin: 0 auto 10px auto;
+            line-height: 30px;
+            font-size: 16px;
+            color: white;
+            padding: 0 0 0 10px;
+            position: relative;
+        }
+        .bar::before{
+            content: '';
+              width: 100%;
+              position: absolute;
+              left: 0;
+              height: 30px;
+              top: 0;
+              z-index: -2;
+              background: #ded6d6;
+          }
+          
+          .bar::after{
+            content: '';
+              background: #4b3dbf;
+              height: 30px;
+              transition: 0.7s;
+              display: block;
+              width: 100%;
+              position: absolute;
+              top: 0;
+              left: 0;
+              z-index: -1;
+          }
+
+          .bar1 ::after {
+            max-width: 30%;
+
+            @include chartValue;
+          }
+          
+        //   .bar1::after{
+        //     max-width: 60%;
+        //   }
+        
+         
+          
+        //   @for $i from 1 through 3 {
+        //     .bar#{$i} ::after{
+        //       @include chartValue($i);
+        //     }
+        //   }
+    }
+    
+    span{
+        position: absolute;
+          margin-left: 25px;
+          font-weight: bold;
+    }
+    
+    .barStatus{
+        right: 20%;
+        position: absolute;
+        top: 22%;
+        th {
+            padding-bottom: 20px;
+            padding-left: 100px;
+          }
+          
+          td{
+            padding-left: 100px;
+            padding-bottom: 20px;
+          }
+    }
+}
+
+
