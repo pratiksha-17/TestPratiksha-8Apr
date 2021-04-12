@@ -1,99 +1,189 @@
-  @mixin chartValue() {
+  @mixin chartValue($data) {
             // $result: 3 - $data;
-            max-width: 20%;
+            max-width: $data;
     }
 
-   
+.header{
+      text-align: center;
+      background: #ded6d6;
+      padding: 1px 10px;
+} 
 
 .graph{
-
-    .header{
-        text-align: center;
-        background: #ded6d6;
-        padding: 1px 10px;
-    }
-    
-    .header + h4{
-      text-align: center;
-    }
-    
-    .barWrapper{
-        margin-right: 30%;
-        margin-top: 70px;
-        height: 250px;
-        .bar{
+  
+  .header + h4{
+    text-align: center;
+  }
+  
+  .barWrapper{
+      margin-right: 30%;
+      margin-top: 70px;
+      height: 250px;
+      .bar{
+          height: 30px;
+          max-width: 500px;
+          margin: 0 auto 10px auto;
+          line-height: 30px;
+          font-size: 16px;
+          color: white;
+          padding: 0 0 0 10px;
+          position: relative;
+      }
+      .bar::before{
+          content: '';
+            width: 100%;
+            position: absolute;
+            left: 0;
             height: 30px;
-            max-width: 500px;
-            margin: 0 auto 10px auto;
-            line-height: 30px;
-            font-size: 16px;
-            color: white;
-            padding: 0 0 0 10px;
-            position: relative;
+            top: 0;
+            z-index: -2;
+            background: #ded6d6;
         }
-        .bar::before{
-            content: '';
-              width: 100%;
-              position: absolute;
-              left: 0;
-              height: 30px;
-              top: 0;
-              z-index: -2;
-              background: #ded6d6;
-          }
-          
-          .bar::after{
-            content: '';
-              background: #4b3dbf;
-              height: 30px;
-              transition: 0.7s;
-              display: block;
-              width: 100%;
-              position: absolute;
-              top: 0;
-              left: 0;
-              z-index: -1;
-          }
-
-          .bar1 ::after {
-            max-width: 30%;
-
-            @include chartValue;
-          }
-          
-        //   .bar1::after{
-        //     max-width: 60%;
-        //   }
         
-         
-          
-        //   @for $i from 1 through 3 {
-        //     .bar#{$i} ::after{
-        //       @include chartValue($i);
-        //     }
-        //   }
-    }
-    
-    span{
+        .bar::after{
+          content: '';
+            background: #4b3dbf;
+            height: 30px;
+            transition: 0.7s;
+            display: block;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .bar0::after {
+          @include chartValue(30%);
+        }
+        .bar1::after {
+          @include chartValue(40%);
+        }
+        .bar2::after {
+          @include chartValue(77%);
+        }
+  }
+  
+  span{
+      position: absolute;
+        margin-left: 25px;
+        font-weight: bold;
+  }
+  
+  .barStatus{
+      right: 20%;
+      position: absolute;
+      top: 22%;
+      th {
+          padding-bottom: 20px;
+          padding-left: 100px;
+        }
+        
+        td{
+          padding-left: 100px;
+          padding-bottom: 20px;
+        }
+  }
+
+  .hightChart{
+    .summrayWrap{
+      h4{
+        margin-left: 30%;
+      }
+      .square{
+        height: 20px;
+        width: 20px;
+        background-color: #25ae60;
         position: absolute;
-          margin-left: 25px;
-          font-weight: bold;
-    }
-    
-    .barStatus{
-        right: 20%;
+        white-space: nowrap;
+        margin-left: 15%;
+      }
+      
+      .squareInCorrect{
+        height: 20px;
+        width: 20px;
+        background-color:#e94c3d;
+        white-space: nowrap;
+        display: flex;
         position: absolute;
-        top: 22%;
-        th {
-            padding-bottom: 20px;
-            padding-left: 100px;
-          }
-          
-          td{
-            padding-left: 100px;
-            padding-bottom: 20px;
-          }
+        margin-left: 30%;
+      }
+      
+      .squareNotAttempt{
+        height: 20px;
+        width: 20px;
+        background-color:#e4d1d1;
+        white-space: nowrap;
+        display: flex;
+        position: absolute;
+        margin-left: 50%;
+      }
     }
+    .timetaken{
+      margin-right: 25%;
+      float: right;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      font-size: 40px;
+      p{
+        font-size: 20px;
+      }
+    }
+    .timetakenMin{
+      margin-right: 15%;
+      float: right;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      font-size: 40px;
+      p{
+        font-size: 20px;
+      }
+    }
+    button{
+    margin-right: 20%;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    float: right;
+    background-color: #008CBA;
+    }
+  }
+}
+
+.tableWrap{
+  margin: 100px;
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+}
+
+.close {
+  font-size: 80px;
+  left: 0%;
+  cursor: pointer;
+  position: absolute;
+  top: 5%;
+  padding: 12px 16px;
+  transform: translate(0%, -50%);
+
 }
 
 

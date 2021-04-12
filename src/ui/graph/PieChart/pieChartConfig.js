@@ -3,7 +3,8 @@ const config = {
       plotBackgroundColor: null,
       plotBorderWidth: null,
       plotShadow: false,
-      type: 'pie'
+      type: 'pie',
+      margin: [100, 500 , 10, 0]    
   },
   title: {
       text: 'Summary'
@@ -30,9 +31,10 @@ const config = {
   series: [{
       name: 'Share',
       data: [
-          { name: 'Chrome', y: 80 },
-          { name: 'Internet Explorer', y: 20 }
-      ]
+          { name: 'Correct', y: 80 },
+          { name: 'InCorrect', y: 20 }
+      ],
+      colors: ['#25ae60', '#e94c3d']
   }]
 };
 
